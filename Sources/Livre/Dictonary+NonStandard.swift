@@ -19,6 +19,23 @@ public func values<Key: Hashable, Value>(for keys: [Key]) -> ([Key: Value]) -> [
   }
 }
 
+public func values<Key: Hashable, Value>(_ k1: Key, _ k2: Key) -> ([Key: Value]) -> (Value?, Value?)
+{
+  { dict in return (dict[k1], dict[k2]) }
+}
+
+public func values<Key: Hashable, Value>(_ k1: Key, _ k2: Key, _ k3: Key) -> ([Key: Value]) -> (
+  Value?, Value?, Value?
+) {
+  { dict in return (dict[k1], dict[k2], dict[k3]) }
+}
+
+public func values<Key: Hashable, Value>(_ k1: Key, _ k2: Key, _ k3: Key, _ k4: Key) -> (
+  [Key: Value]
+) -> (Value?, Value?, Value?, Value?) {
+  { dict in return (dict[k1], dict[k2], dict[k3], dict[k4]) }
+}
+
 public func valuesOptional<Key: Hashable, Value>(for keys: [Key]) -> ([Key: Value]) -> [Value?] {
   { dict in
     var result: [Value?] = []
